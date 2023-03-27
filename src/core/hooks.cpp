@@ -11,7 +11,7 @@
 #include <intrin.h>
 #include <stdexcept>
 
-#include "../hacks/misc.h"
+#include "../func/functional.h"
 
 void hooks::Setup() noexcept
 {

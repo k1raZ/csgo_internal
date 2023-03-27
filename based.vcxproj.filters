@@ -48,7 +48,7 @@
     <ClCompile Include="src\core\globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\hacks\misc.cpp">
+    <ClCompile Include="src\func\bunnyhop\bunnyhop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ext\imgui\imgui.cpp">
@@ -191,7 +191,7 @@
     <ClInclude Include="src\valve\ienginevgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\hacks\misc.h">
+    <ClInclude Include="src\func\bunnyhop\bunnyhop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ext\imgui\imconfig.h">
@@ -219,6 +219,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\gui\gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\offsets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\func\functional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\func\vars.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

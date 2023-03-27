@@ -30,7 +30,7 @@ DWORD WINAPI Setup(LPVOID lpParam)
 	}
 
 	// sleep our thread until unload key is pressed
-	while (!GetAsyncKeyState(VK_END))
+	while (!GetAsyncKeyState(VK_F12))
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
 UNLOAD:

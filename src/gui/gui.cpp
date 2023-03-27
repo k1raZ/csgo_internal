@@ -3,7 +3,8 @@
 #include "../../ext/imgui/imgui.h"
 #include "../../ext/imgui/imgui_impl_win32.h"
 #include "../../ext/imgui/imgui_impl_dx9.h"
-
+#include "../func/functional.h"
+#include "../func/vars.h"
 #include <stdexcept>
 
 
@@ -201,10 +202,9 @@ void gui::Destroy() noexcept
 
 class initWindow {
 public:
-	const char* window_title = "k";
 	ImVec2 window_size{ 870, 500 };
 
-	DWORD window_flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoResize;
+	DWORD window_flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize; // 
 } iw;
 
 static int tabb = 0;
@@ -230,6 +230,7 @@ void gui::Render() noexcept
 	style.IndentSpacing = 14;
 	style.ScrollbarSize = 14;
 	style.GrabMinSize = 20;
+	style.ItemSpacing = ImVec2(13, 13);
 
 	//borders
 	style.WindowBorderSize = 0;
@@ -247,6 +248,7 @@ void gui::Render() noexcept
 	style.GrabRounding = 4;
 	style.LogSliderDeadzone = 5;
 	style.TabRounding = 10;
+	style.FrameRounding = 4.0f;
 
 	//aligment
 	style.WindowTitleAlign = ImVec2(0.50f, 0.50f);
@@ -289,6 +291,11 @@ void gui::Render() noexcept
 		switch (tabb) {
 			case 0:
 				ImGui::Text("Aimbot");
+
+				// fov 
+				// smooth
+
+
 				break;		
 			case 1:
 				ImGui::Text("Triggerbot");
@@ -300,7 +307,7 @@ void gui::Render() noexcept
 				ImGui::Text("Visuals");
 				break;
 			case 4:
-				ImGui::Text("Misc");
+				ImGui::Checkbox("Bunnyhop", &Functional::Misc::bunnyhop);
 				break;
 			case 5:
 				ImGui::Text("Settings");

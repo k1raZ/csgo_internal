@@ -1,4 +1,5 @@
 #pragma once
+#include "../../util/offsets.h"
 
 class CUserCmd;
 namespace hacks
