@@ -6,6 +6,7 @@
 
 #include <stdexcept>
 
+
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
 	HWND window,
 	UINT message,
@@ -198,13 +199,115 @@ void gui::Destroy() noexcept
 
 //Menu
 
+class initWindow {
+public:
+	const char* window_title = "k";
+	ImVec2 window_size{ 870, 500 };
+
+	DWORD window_flags = ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoResize;
+} iw;
+
+static int tabb = 0;
+const float button_width = 130.0f;
+const float button_height = 45.0f;
+const float spacing = 15.0f;
+
 void gui::Render() noexcept
 {
 	ImGui_ImplDX9_NewFrame();
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
-	ImGui::Begin("test", &open);
+	ImGuiStyle& style = ImGui::GetStyle();
+
+	// main
+	style.WindowPadding = ImVec2(11, 13);
+	style.FramePadding = ImVec2(11, 5);
+	style.CellPadding = ImVec2(7, 7);
+	style.ItemSpacing = ImVec2(15, 0);
+	style.ItemInnerSpacing = ImVec2(20, 7);
+	style.TouchExtraPadding = ImVec2(4, 0);
+	style.IndentSpacing = 14;
+	style.ScrollbarSize = 14;
+	style.GrabMinSize = 20;
+
+	//borders
+	style.WindowBorderSize = 0;
+	style.ChildBorderSize = 1;
+	style.PopupBorderSize = 1;
+	style.FramePadding = ImVec2(0, 0);
+	style.TabBorderSize = 0;
+
+	//rounding
+	style.WindowRounding = 9;
+	style.ChildRounding = 2;
+	style.FramePadding = ImVec2(8, 8);
+	style.PopupRounding = 5;
+	style.ScrollbarRounding = 12;
+	style.GrabRounding = 4;
+	style.LogSliderDeadzone = 5;
+	style.TabRounding = 10;
+
+	//aligment
+	style.WindowTitleAlign = ImVec2(0.50f, 0.50f);
+	style.WindowMenuButtonPosition = 0;
+	style.ButtonTextAlign = ImVec2(0.50f, 0.50f);
+
+	ImGui::SetNextWindowSize(iw.window_size);
+	ImGui::SetNextWindowBgAlpha(1.0f);
+	ImGui::Begin("kiraz internal", &open, iw.window_flags);
+	{
+		if (ImGui::Button("Aimbot", ImVec2(button_width, button_height))) {
+			tabb = 0;
+		}
+		ImGui::SameLine(0, spacing);
+
+		if (ImGui::Button("Trigerbot", ImVec2(button_width, button_height))) {
+			tabb = 1;
+		}
+		ImGui::SameLine(0, spacing);
+
+		if (ImGui::Button("Radar", ImVec2(button_width, button_height))) {
+			tabb = 2;
+		}
+		ImGui::SameLine(0, spacing);
+
+		if (ImGui::Button("Visuals", ImVec2(button_width, button_height))) {
+			tabb = 3;
+		}
+		ImGui::SameLine(0, spacing);
+
+		if (ImGui::Button("Misc", ImVec2(button_width, button_height))) {
+			tabb = 4;
+		}
+		ImGui::SameLine(0, spacing);
+
+		if (ImGui::Button("Settings", ImVec2(button_width, button_height))) {
+			tabb = 5;
+		}
+
+		switch (tabb) {
+			case 0:
+				ImGui::Text("Aimbot");
+				break;		
+			case 1:
+				ImGui::Text("Triggerbot");
+				break;
+			case 2:
+				ImGui::Text("Radar");
+				break;
+			case 3:
+				ImGui::Text("Visuals");
+				break;
+			case 4:
+				ImGui::Text("Misc");
+				break;
+			case 5:
+				ImGui::Text("Settings");
+				break;
+		}
+
+	}
 	ImGui::End();
 
 	ImGui::EndFrame();
