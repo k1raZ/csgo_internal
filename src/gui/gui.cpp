@@ -1,4 +1,4 @@
-#include "gui.h"
+﻿#include "gui.h"
 
 #include "../../ext/imgui/imgui.h"
 #include "../../ext/imgui/imgui_impl_win32.h"
@@ -6,6 +6,7 @@
 #include "../func/functional.h"
 #include "../func/vars.h"
 #include <stdexcept>
+
 
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
@@ -173,14 +174,18 @@ void gui::SetupMenu(LPDIRECT3DDEVICE9 device) noexcept
 	originalWindowProcess = reinterpret_cast<WNDPROC>(
 		SetWindowLongPtr(window, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(WindowProcess))
 		);
-
+	
 	ImGui::CreateContext();
-	ImGui::StyleColorsDark();
+	ImGui::StyleColorsLight();
 
 	ImGui_ImplWin32_Init(window);
 	ImGui_ImplDX9_Init(device);
 
 	setup = true;
+
+	ImGuiIO& io = ImGui::GetIO();
+	io.Fonts->AddFontFromFileTTF("C:/Windows/Fonts/Arial.ttf", 17.0f);
+	io.FontDefault = io.Fonts->Fonts.back();
 }
 
 void gui::Destroy() noexcept
@@ -212,13 +217,56 @@ const float button_width = 130.0f;
 const float button_height = 45.0f;
 const float spacing = 15.0f;
 
+
+
+; // устанавливаем новый шрифт для всего меню
+
+
 void gui::Render() noexcept
 {
+
+
+	ImGui_ImplDX9_NewFrame();
+	ImGui_ImplWin32_NewFrame();
+
 	ImGui_ImplDX9_NewFrame();
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
 	ImGuiStyle& style = ImGui::GetStyle();
+	
+
+	// Background color
+	ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.92f, 0.95f, 0.98f, 1.0f));
+	// Header color
+	ImGui::PushStyleColor(ImGuiCol_Header, ImVec4(0.30f, 0.53f, 0.87f, 0.33f));
+	ImGui::PushStyleColor(ImGuiCol_HeaderHovered, ImVec4(0.30f, 0.53f, 0.87f, 0.70f));
+	ImGui::PushStyleColor(ImGuiCol_HeaderActive, ImVec4(0.30f, 0.53f, 0.87f, 1.0f));
+
+	// Button color
+	ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.0f, 0.0f, 1.00f)); // белый цвет текста
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.34f, 0.51f, 1.17f, 1.00f));
+	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.24f, 0.36f, 0.82f, 1.00f)); // при наведении
+	ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.24f, 0.36f, 0.82f, 1.00f)); // когда нажимаешь
+
+
+	// Text color for disabled controls
+	ImGui::PushStyleColor(ImGuiCol_TextDisabled, ImVec4(0.60f, 0.60f, 0.60f, 1.0f));
+
+	// Separator color
+	ImGui::PushStyleColor(ImGuiCol_Separator, ImVec4(0.0f, 0.0f, 0.0f, 0.10f));
+
+	// Active/inactive window title color
+	ImGui::PushStyleColor(ImGuiCol_TitleBg, ImVec4(0.30f, 0.53f, 0.87f, 1.0f));
+	ImGui::PushStyleColor(ImGuiCol_TitleBgActive, ImVec4(0.30f, 0.53f, 0.87f, 1.0f));
+	ImGui::PushStyleColor(ImGuiCol_TitleBgCollapsed, ImVec4(0.30f, 0.53f, 0.87f, 0.75f));
+
+	// Window border color
+	ImGui::PushStyleColor(ImGuiCol_Border, ImVec4(0.26f, 0.47f, 0.76f, 0.29f));
+	ImGui::PushStyleColor(ImGuiCol_BorderShadow, ImVec4(1.00f, 1.00f, 1.00f, 0.10f));
+
+	// Popup background color
+	ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(1.00f, 1.00f, 1.00f, 1.0f));
 
 	// main
 	style.WindowPadding = ImVec2(11, 13);
@@ -291,11 +339,9 @@ void gui::Render() noexcept
 		switch (tabb) {
 			case 0:
 				ImGui::Text("Aimbot");
-
+				// ImGui::ShowStyleEditor();
 				// fov 
 				// smooth
-
-
 				break;		
 			case 1:
 				ImGui::Text("Triggerbot");
@@ -311,6 +357,7 @@ void gui::Render() noexcept
 				break;
 			case 5:
 				ImGui::Text("Settings");
+
 				break;
 		}
 

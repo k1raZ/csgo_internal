@@ -8,6 +8,7 @@
 // setup our cheat & unload it when exit key is pressed
 DWORD WINAPI Setup(LPVOID lpParam)
 {
+
 	try
 	{
 		gui::Setup();			// setup menu
@@ -15,6 +16,7 @@ DWORD WINAPI Setup(LPVOID lpParam)
 		interfaces::Setup();    // capture interfaces
 		netvars::Setup();		// dump latest offsets
 		hooks::Setup();			// place hooks
+
 	}
 	catch (const std::exception& error)
 	{
@@ -30,7 +32,7 @@ DWORD WINAPI Setup(LPVOID lpParam)
 	}
 
 	// sleep our thread until unload key is pressed
-	while (!GetAsyncKeyState(VK_F12))
+	while (!GetAsyncKeyState(VK_END))
 		std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
 UNLOAD:
