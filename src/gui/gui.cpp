@@ -3,9 +3,10 @@
 #include "../../ext/imgui/imgui.h"
 #include "../../ext/imgui/imgui_impl_win32.h"
 #include "../../ext/imgui/imgui_impl_dx9.h"
-#include "../func/functional.h"
 #include "../func/vars.h"
 #include <stdexcept>
+#include "../func/bunnyhop.h"
+// #include "../func/bunnyhop.cpp"
 
 
 
@@ -184,7 +185,7 @@ void gui::SetupMenu(LPDIRECT3DDEVICE9 device) noexcept
 	setup = true;
 
 	ImGuiIO& io = ImGui::GetIO();
-	io.Fonts->AddFontFromFileTTF("C:/Windows/Fonts/Arial.ttf", 17.0f);
+	io.Fonts->AddFontFromFileTTF("C:/Windows/Fonts/Verdana.ttf", 17.0f);
 	io.FontDefault = io.Fonts->Fonts.back();
 }
 
@@ -220,6 +221,7 @@ const float spacing = 15.0f;
 
 
 ; // устанавливаем новый шрифт для всего меню
+
 
 
 void gui::Render() noexcept
@@ -338,10 +340,6 @@ void gui::Render() noexcept
 
 		switch (tabb) {
 			case 0:
-				ImGui::Text("Aimbot");
-				// ImGui::ShowStyleEditor();
-				// fov 
-				// smooth
 				break;		
 			case 1:
 				ImGui::Text("Triggerbot");
@@ -360,7 +358,6 @@ void gui::Render() noexcept
 
 				break;
 		}
-
 	}
 	ImGui::End();
 

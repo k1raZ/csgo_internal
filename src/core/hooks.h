@@ -1,6 +1,7 @@
 #pragma once
 #include "interfaces.h"
 #include "../gui/gui.h"
+#include "../func/bunnyhop.h"
 
 namespace hooks
 {

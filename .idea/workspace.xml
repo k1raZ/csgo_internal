@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e37c1293-3f4d-4e58-9dfa-83f2a53a19fd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/build/intermediates/internal.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/internal.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/internal.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/internal.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/internal.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/internal.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/internal.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/internal.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/internal.dll" beforeDir="false" afterPath="$PROJECT_DIR$/build/internal.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func/vars.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/func/vars.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/gui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/gui.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Nq8JFepBMlObsMXor0qiy7BXKE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "C:/Users/wayne/Desktop/internal",
+    "nodejs_package_manager_path": "npm",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e37c1293-3f4d-4e58-9dfa-83f2a53a19fd" name="Changes" comment="" />
+      <created>1680380178013</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680380178013</updated>
+      <workItem from="1680380179047" duration="58000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
