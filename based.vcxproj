@@ -165,6 +165,8 @@
     <ClCompile Include="src\core\interfaces.cpp" />
     <ClCompile Include="src\core\netvars.cpp" />
     <ClCompile Include="src\func\bunnyhop.cpp" />
+    <ClCompile Include="src\func\func.h" />
+    <ClCompile Include="src\func\triggerbot.cpp" />
     <ClCompile Include="src\gui\gui.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\util\memory.cpp" />
@@ -190,7 +192,6 @@
     <ClInclude Include="src\core\hooks.h" />
     <ClInclude Include="src\core\interfaces.h" />
     <ClInclude Include="src\core\netvars.h" />
-    <ClInclude Include="src\func\bunnyhop.h" />
     <ClInclude Include="src\func\vars.h" />
     <ClInclude Include="src\gui\gui.h" />
     <ClInclude Include="src\util\hash.h" />

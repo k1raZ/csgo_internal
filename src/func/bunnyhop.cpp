@@ -1,4 +1,4 @@
-#include "bunnyhop.h"
+#include "func.h"
 
 
 void hacks::BunnyHop(CUserCmd* cmd) noexcept {	

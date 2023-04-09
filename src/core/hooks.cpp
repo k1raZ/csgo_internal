@@ -10,6 +10,7 @@
 
 #include <intrin.h>
 #include <stdexcept>
+#include "../func/func.h"
 
 
 void hooks::Setup() noexcept
@@ -114,8 +115,12 @@ bool __stdcall hooks::CreateMove(float frameTime, CUserCmd* cmd) noexcept
 	// get our local player here
 	globals::UpdateLocalPlayer();
 
-	if (globals::localPlayer && globals::localPlayer->IsAlive())
-	{
+
+	if (Functional::Misc::triggerbot) {
+		hacks::TriggerBot(cmd);
+	}
+
+	if (globals::localPlayer && globals::localPlayer->IsPlayer() || globals::localPlayer->IsAlive()) {
 		if (Functional::Misc::bunnyhop) 
 			hacks::BunnyHop(cmd);
 	}

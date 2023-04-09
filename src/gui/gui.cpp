@@ -5,7 +5,7 @@
 #include "../../ext/imgui/imgui_impl_dx9.h"
 #include "../func/vars.h"
 #include <stdexcept>
-#include "../func/bunnyhop.h"
+
 // #include "../func/bunnyhop.cpp"
 
 
@@ -352,6 +352,10 @@ void gui::Render() noexcept
 				break;
 			case 4:
 				ImGui::Checkbox("Bunnyhop", &Functional::Misc::bunnyhop);
+				ImGui::Checkbox("TriggerBot", &Functional::Misc::triggerbot);
+				if (Functional::Misc::triggerbot) {
+					ImGui::Text("Press VK_XBUTTON2");
+				}
 				break;
 			case 5:
 				ImGui::Text("Settings");
