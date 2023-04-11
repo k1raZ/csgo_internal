@@ -348,7 +348,11 @@ void gui::Render() noexcept
 				ImGui::Text("Radar");
 				break;
 			case 3:
-				ImGui::Text("Visuals");
+				ImGui::Checkbox("Chams", &Functional::Chams::chams);
+				//if (Functional::Chams::chams) {					
+				//	
+				//	ImGui::Combo("Chams materials", &Functional::Chams::selected_material, Functional::Chams::items, IM_ARRAYSIZE(Functional::Chams::items));
+				//}
 				break;
 			case 4:
 				ImGui::Checkbox("Bunnyhop", &Functional::Misc::bunnyhop);

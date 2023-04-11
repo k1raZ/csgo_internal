@@ -1,4 +1,4 @@
-#include "hooks.h"
+﻿#include "hooks.h"
 
 // include minhook for epic hookage
 #include "../../ext/minhook/minhook.h"
@@ -48,6 +48,14 @@ void hooks::Setup() noexcept
 		&CreateMove,
 		reinterpret_cast<void**>(&CreateMoveOriginal)
 	);
+
+	// drawmodel hook
+	MH_CreateHook(
+		memory::Get(interfaces::studioRender, 29),
+		&DrawModel,
+		reinterpret_cast<void**>(&DrawModelOriginal)
+	);
+
 
 	MH_EnableHook(MH_ALL_HOOKS);
 	gui::DestroyDirectX();
@@ -126,4 +134,49 @@ bool __stdcall hooks::CreateMove(float frameTime, CUserCmd* cmd) noexcept
 	}
 
 	return false;
+}
+
+
+void __stdcall hooks::DrawModel(
+	void* results,
+	const CDrawModelInfo& info,
+	CMatrix3x4* bones,
+	float* flexWeights,
+	float* flexDelayedWeights,
+	const CVector& modelOrigin,
+	const int32_t flags
+) noexcept
+{
+	if (globals::localPlayer && info.renderable) {
+		CEntity* entity = info.renderable->GetIClientUnknown()->GetBaseEntity();
+
+		if (Functional::Chams::chams) {
+			if (entity && entity->IsPlayer() && entity->GetTeam() != globals::localPlayer->GetTeam()) {
+
+				static IMaterial* material = interfaces::materialSystem->FindMaterial("models/inventory_items/wildfire_gold/wildfire_gold_detail");
+
+				// при изменении помещать в глобалы
+				constexpr float hidden[3] = { 1.06f, 0.38f, 1.73f };
+				const float visible[3] = { 1.06f, 0.38f, 1.73f };
+
+				interfaces::studioRender->SetAlphaModulation(1.f); // прозрачность
+
+				// show thr walls
+				material->SetMaterialVarFlag(IMaterial::IGNOREZ, true);
+				interfaces::studioRender->SetColorModulation(hidden);
+				interfaces::studioRender->ForcedMaterialOverride(material);
+				DrawModelOriginal(interfaces::studioRender, results, info, bones, flexWeights, flexDelayedWeights, modelOrigin, flags);
+
+				// dnt show thr walls
+				material->SetMaterialVarFlag(IMaterial::IGNOREZ, false);
+				interfaces::studioRender->SetColorModulation(visible);
+				interfaces::studioRender->ForcedMaterialOverride(material);
+				DrawModelOriginal(interfaces::studioRender, results, info, bones, flexWeights, flexDelayedWeights, modelOrigin, flags);
+
+				return interfaces::studioRender->ForcedMaterialOverride(nullptr);
+			}
+		}
+	}
+
+	DrawModelOriginal(interfaces::studioRender, results, info, bones, flexWeights, flexDelayedWeights, modelOrigin, flags);
 }
